@@ -1,0 +1,358 @@
+body,html{
+	max-width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #FFF;
+	font-size: 16px;
+}
+section{
+	margin-bottom: 80px;
+	position:relative;
+}
+h1,h2,h3,h4,h5,h6{
+	color: #2a2929;
+	text-transform: uppercase;
+}
+.row{
+	margin-left: 0;
+	margin-right: 0;
+}
+
+ul{
+	list-style: none;
+	margin-top: 0;
+    margin-bottom: 16px;
+}
+
+a{
+	color: #1abc9c;
+	text-decoration: none;
+}
+
+.fullWidth{
+	width: 100%;
+}
+.fullHeight{
+	height: 100%;
+}
+.fullScreen{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.abs{
+	position: absolute;
+}
+.rel{
+	position: relative;
+}
+.fonts16px{
+	font-size: 16px;
+}
+.trans05s{
+	transition: all .5s;
+}
+.nopadding{
+	padding: 0;
+}
+
+.navbar-default{
+    background-color: rgba(255, 255, 255, 0.95);
+	border: none;
+	box-shadow: 0 1px 9px rgba(0, 0, 0, 0.4);
+	opacity: 0;
+	display: none;
+}
+.left-cell,
+.right-cell{
+	line-height: 32px;
+	display: table-cell;
+	vertical-align: middle;
+	text-transform: uppercase;
+	box-sizing: border-box;
+}
+.left-cell{
+	width: 850px;
+	height: 67px;
+}
+
+.right-cell{
+	width: 194px;
+}
+
+.left-cell ul li a{
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.slide{
+	background-image: url(../img/bannerconf.png);
+	background-size: 100% 40%;
+	background-repeat: no-repeat;
+}
+
+.grid_icon_container{
+	background-color: #ecf0f1;
+	margin-bottom: 180px;
+	padding-top: 80px;
+	line-height: 32px;
+}
+.grid_icon_container #bigTriangleColor{
+	position: absolute;
+	bottom: -100px;
+	overflow: hidden;
+}
+.grid_icon_container #bigTriangleColor path{
+	fill: #ecf0f1;
+	stroke: #ecf0f1;
+	stroke-width: 2;
+}
+/*.grid_icon_container .grid_icons{
+	color: #666666;
+}*/
+.grid_icon_container .grid_icons span{
+	font-size: 3.5em;
+	color: #666666;
+	border: 1px solid #666666;
+	display: inline-block;
+	padding: 3px 15px;
+	border-radius: 2px;
+	background-clip: padding-box;
+	margin-bottom: 30px;
+	background-color: #ecf0f1;
+	transition: all .4s;
+}
+.grid_icon_container .grid_icons span:before,
+.grid_icon_container .grid_icons span:after{
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	pointer-events: none;
+	transition: all .4s;
+}
+.grid_icon_container .grid_icons span:before{
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #666666;
+	border-width: 11px;
+	margin-left: -11px;
+}
+.grid_icon_container .grid_icons span:after{
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #ecf0f1;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.grid_icon_container .grid_icons span i{
+	font-size: 56px;
+	font-weight: 300;
+	font-style: italic;
+	line-height: 112px;
+}
+
+.grid_icon_container .grid_icons h4{
+	
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.grid_icon_container .grid_icons p{
+	font-size: 14px;
+	color: #999999;
+}
+.grid_icon_container .grid_icons span:hover{
+	
+	color: #FFFFFF;
+}
+
+/*Efecto redes sociales*/
+
+/*--- Facebook ---*/
+.grid_icon_container .grid_icons span.facebook:hover{
+	background-color: #3b5998;
+	border: 1px solid #3b5998;
+}
+
+.grid_icon_container .grid_icons span.facebook:hover:before,
+.grid_icon_container .grid_icons span.facebook:hover:after{
+	border-top: 11px solid #3b5998;
+	border-top-color: #3b5998;
+}
+
+/*--- Twitter ---*/
+.grid_icon_container .grid_icons span.twitter:hover{
+	background-color: #55acee;
+	border: 1px solid #55acee;
+}
+
+.grid_icon_container .grid_icons span.twitter:hover:before,
+.grid_icon_container .grid_icons span.twitter:hover:after{
+	border-top: 11px solid #55acee;
+	border-top-color: #55acee;
+}
+
+/*--- Instagram ---*/
+.grid_icon_container .grid_icons span.instagram:hover{
+	background-color: #125688;
+	border: 1px solid #125688;
+}
+
+.grid_icon_container .grid_icons span.instagram:hover:before,
+.grid_icon_container .grid_icons span.instagram:hover:after{
+	border-top: 11px solid #125688;
+	border-top-color: #125688;
+}
+
+/*--- Google pLus ---*/
+.grid_icon_container .grid_icons span.google-plus:hover{
+	background-color: #dd4b39;
+	border: 1px solid #dd4b39;
+}
+
+.grid_icon_container .grid_icons span.google-plus:hover:before,
+.grid_icon_container .grid_icons span.google-plus:hover:after{
+	border-top: 11px solid #dd4b39;
+	border-top-color: #dd4b39;
+}
+
+.seccion_confe 
+{
+	width: 100%;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: 2.8125rem;
+    margin-right: 2.8125rem;
+}
+
+.seccion_confe .seccion_xxxlg
+{
+    width: calc((((100% - 160px)/ 8) * 8) + 140px);
+}
+
+.modulo-grid
+{
+	position: relative;
+    padding: 1.875rem 0 2.5rem;
+    border-bottom: 1px #E3E8E9 solid;
+    animation: .2s fade_in ease-in both;
+}
+
+.confe-p-header
+{
+	display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.confe-header
+{
+	margin: 0;
+    padding: 0;
+}
+
+.div
+{
+	display: block;
+}
+
+.video_thumb_carousel-standard 
+{
+    padding: 0 10px;
+}
+
+.video_thumb_carousel__slides {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.video_thumb_carousel-standard__slide {
+    margin: 0 -10px;
+    width: calc(100% + 20px);
+}
+
+.video_thumb_carousel__slide--initial
+{
+	position: relative;
+    z-index: 2;
+    opacity: 1;
+}
+
+.video_thumb_carousel__slide {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+    width: 100%;
+}
+
+.iris_p_infinite__grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    min-width: 25%;
+    width: auto;
+}
+
+.iris_p_infinite__item {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.iris_video-vital--browse {
+    
+    flex-wrap: wrap;
+}
+
+.iris_video-vital {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.iris_video-vital__overlay
+{
+	    width: 100%;
+}
+
+.iris_thumbnail--16-9 {
+    height: 0;
+    padding-bottom: 56.24%;
+    background-color: #EEF1F2;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cpath fill='%23D0D8DB' d='M32 8.5C32 15 20 30 14.5 30 8 30 8 10 4.017 10c-.517 0-2.51 1.5-2.51 1.5L0 9.5s7-7 10-7c6 0 4 17.5 7.5 17.5 2 0 9-11 3-11-1 0-2 .5-2 .5C20 4.5 23 2 27.5 2c3 0 4.5 2.5 4.5 6.5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.iris_thumbnail {
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+a img, img {
+    border: 0;
+}
+
