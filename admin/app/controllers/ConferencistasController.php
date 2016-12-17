@@ -4,7 +4,7 @@ class ConferencistasController extends Controllers{
 	private $conferencistas;
 
 	public function __construct(){
-		parent::__construct();
+		parent::__construct(true);
 		$this->conferencistas = new Conferencistas;
 
 		$this->conferencistas->clear_tmp();

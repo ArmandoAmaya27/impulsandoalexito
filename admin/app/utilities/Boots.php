@@ -205,25 +205,31 @@ final class Boots{
 	 * @return Un conjunto de input select para determinar una fecha de nacimiento
 	 */
 
-	final public static function birthdate($min, $max){
-		
-		if (!intval($min) || !intval($max)) {
+	final public static function birthdate($min, $max, $selected = array()){
+
+		if (sizeof($selected) > 3 || !is_array($selected)) {
+			trigger_error('Debe pasar un arreglo de máximo 3 elementos', E_USER_ERROR);
+		}else if (!intval($min) || !intval($max)) {
 			trigger_error('Los valores a introducir deben ser enteros', E_USER_ERROR);
 		}
 
 		$años = array();
-
+		$años[0] = 'Selecciona Año';
 		for ($i = $min; $i <= $max ; $i++) { 
 			$años[$i] = $i;
 		}
+		$selected[0] = array_key_exists(0, $selected) ? $selected[0] : null;
+		$selected[1] = array_key_exists(1, $selected) ? $selected[1] : null;
+		$selected[2] = array_key_exists(2, $selected) ? $selected[2] : null;
 
-		$input = '<div class="row">
-					<div class="col-md-4">
-						'.self::select_input('year', $años).'
+		$input = '<div class="row clearfix">
+					<div class="col-md-4 col-lg-4 col-xs-12 col-sm-10" style="padding:0 5px;">
+						'.self::select_input('year', $años, $selected[0]).'
 					</div>';
 		
-		$input .= '<div class="col-md-4">
+		$input .= '<div class="col-md-4 col-lg-4 col-xs-12 col-sm-10" style="padding:0 5px;">
 					'.self::select_input('month', array(
+						'0' => 'Selecciona Mes',
 						'01' => 'Enero',
 						'02' => 'Febrero',
 						'03' => 'Marzo',
@@ -236,11 +242,12 @@ final class Boots{
 						'10' => 'Octumbre',
 						'11' => 'Noviembre',
 						'12' => 'Diciembre'
-					)).'
+					), $selected[1]).'
 				</div>';
 
-		$input .= '<div class="col-md-4">
+		$input .= '<div class="col-md-4 col-lg-4 col-xs-12 col-sm-10" style="padding:0 5px;">
 					'.self::select_input('day', array(
+						'0' => 'Selecciona Dia',
 						'01' => '01',
 						'02' => '02',
 						'03' => '03',
@@ -271,7 +278,7 @@ final class Boots{
 						'29' => '29',
 						'30' => '30',
 						'31' => '31'
-					)).'
+					), $selected[2]).'
 				</div>
 			</row>';
 

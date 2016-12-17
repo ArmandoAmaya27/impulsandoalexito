@@ -40,7 +40,7 @@ final class Uploader extends Models{
 		return array('success' => false, 'msg' => '<b>Error: </b>Fallo al subir la imagen.');
 	}
 
-	final public function moveToDir($new_dir, $tmp){
+	final public function moveToDir($new_dir, $tmp, $copy = false){
 		Util::Requir('Fl');
 		Fl::clearDir($new_dir);
 		if (!is_dir($new_dir)) {
@@ -55,9 +55,9 @@ final class Uploader extends Models{
 			}
 
 			copy($file, $new_dir . $name);
-			unlink($file);
+			$copy ?: unlink($file);
 		}
-		Fl::removeDir($tmp);
+		$copy ?: Fl::removeDir($tmp);
 	}
 
 	final public function removeTmp(){

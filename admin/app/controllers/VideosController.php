@@ -4,7 +4,7 @@ class VideosController extends Controllers{
 	private $videos;
 
 	public function __construct(){
-		parent::__construct();
+		parent::__construct(true);
 		Util::Requir('Boots');
 		$this->videos = new Videos;
 

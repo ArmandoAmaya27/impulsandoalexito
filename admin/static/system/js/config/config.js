@@ -1,5 +1,6 @@
 function configuration(){
-	var success = '<span class="fa fa-check"></span>',
+	$('html,body').animate({scrollTop: 0}, 100);
+	var success = '<span class="fa fa-check-circle"></span>',
 		loading = '<span class="fa fa-spinner fa-pulse fa-fw"></span>',
 		error = '<span class="fa fa-times-circle"></span>';
 

@@ -54,6 +54,7 @@
      */
 
     final public static function Letters($c){
+        $c = str_replace(' ', '', $c);
     	return ctype_alpha($c);
     }
 

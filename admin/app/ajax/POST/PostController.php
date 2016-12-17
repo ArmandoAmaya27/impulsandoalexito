@@ -46,5 +46,26 @@ class PostController extends Controllers{
 		$model = new Videos;
 		echo $this->AjaxResponse($model->edit($_POST));
 	}
+	public function usuarios_create(){
+		$model = new Usuarios;
+		echo $this->AjaxResponse($model->create($_POST));
+	}
+	public function usuarios_edit(){
+		$model = new Usuarios;
+		echo $this->AjaxResponse($model->edit($_POST));
+	}
+	public function signin(){
+		$model = new Login;
+		echo $this->AjaxResponse($model->signin($_POST));
+	}
+	public function categorias_create(){
+		$model = new Categorias;
+		echo $this->AjaxResponse($model->create($_POST));
+	}
+	public function categorias_edit(){
+		$model = new Categorias;
+		echo $this->AjaxResponse($model->edit($_POST));
+	}
+	
 }
 

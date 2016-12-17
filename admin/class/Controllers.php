@@ -15,7 +15,7 @@ abstract class Controllers{
 		$this->request = $request;
 
 		if (!isset($_SESSION[SESSION_ID]) && is_bool($log) && $log) {
-			Str::redir('error');
+			Str::redir('signin');
 		}
 		if (isset($_SESSION[SESSION_ID]) && is_bool($desc) && $desc) {
 			Str::redir(URL);

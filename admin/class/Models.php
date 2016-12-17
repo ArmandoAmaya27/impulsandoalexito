@@ -45,20 +45,19 @@ abstract class Models{
 
 	// ----------------------------------
 
-	protected function create_session($session, $sess_id = ''){
+	protected function create_session($session){
 		Util::Requir('Val');
-		if (!Val::isEmpty($sess_id)) {
-			$_SESSION[SESSION_ID] = $sess_id;
-		}
-		
+				
 		if (is_array($session) && sizeof($session) > 1) {
 			foreach ($session as $k => $v) {
 				$_SESSION[$k] = $v;
 			}
-			return;
+			
+		}else{
+			$_SESSION['ses_'.$session] = $session;
 		}
 
-		$_SESSION['ses_'.$session] = $session;
+		
 
 	}
 
@@ -66,6 +65,7 @@ abstract class Models{
 
 	protected function select_array($array, $camp = ''){
 		Util::Requir('Val');
+		$c = array();
 		if (Val::isEmpty($camp)) {
 			foreach ($array as $ar) {
 				$c[$ar['id']] = $ar;

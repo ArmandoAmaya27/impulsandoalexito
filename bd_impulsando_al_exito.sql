@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2016 a las 15:42:35
+-- Tiempo de generación: 17-12-2016 a las 04:21:54
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -27,29 +27,47 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id_admin` int(8) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `apellido` varchar(30) NOT NULL,
-  `edad` int(2) NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
+  `id` int(11) NOT NULL,
+  `nombre` varchar(30) DEFAULT NULL,
+  `apellido` varchar(30) DEFAULT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
   `usuario` varchar(20) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `telefono` varchar(11) NOT NULL,
+  `password` varchar(65) NOT NULL,
+  `telefono` varchar(11) DEFAULT NULL,
   `correo_electronico` varchar(50) NOT NULL,
-  `direccion` varchar(50) NOT NULL
+  `direccion` text,
+  `descripcion` text NOT NULL,
+  `redes_sociales` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `admin`
+--
+
+INSERT INTO `admin` (`id`, `nombre`, `apellido`, `cargo`, `fecha_nacimiento`, `usuario`, `password`, `telefono`, `correo_electronico`, `direccion`, `descripcion`, `redes_sociales`) VALUES
+(1, 'Administrador', 'Admin', 'Administrador dei sistema', '1920-03-08', 'Admin', '$2y$10$bs3YzxR9zkz4BpLpawVIcectzB7zDOm5Q9MwDPevsCXWhHpyem91O', '04245559689', 'admin@hotmail.com', 'Panel de administración\r\n', 'Esta es una cuenta de administrador\r\n', '["http:\\/\\/facebook.es\\/admin","http:\\/\\/twitter.es\\/admin","http:\\/\\/instagram.es\\/admin"]'),
+(2, 'Armando', 'Amaya', 'Ingniero de sistemas', '1995-03-28', 'ArmJAXD', '$2y$10$qF7rSNntKht1JAdE9AwwPOjY.qqgRhI4PRKnX41audAkQCVVMP6Ni', '4246668289', 'armandoamaya@ocrend.com', 'sabaneta', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga mollitia, nemo optio magni, ratione beatae saepe quas sunt, qui esse odio hic repudiandae voluptatem nobis quos consequuntur aperiam pariatur.', '["https:\\/\\/www.facebook.com\\/armando.amaya.167","https:\\/\\/www.facebook.com\\/armando.amaya.167","https:\\/\\/www.facebook.com\\/armando.amaya.167"]');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admin_descripcion`
+-- Estructura de tabla para la tabla `categorias`
 --
 
-CREATE TABLE `admin_descripcion` (
-  `id_descripcion` int(8) NOT NULL,
-  `titulo` varchar(50) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `name` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `name`) VALUES
+(1, 'Marketing'),
+(2, 'Regulados'),
+(3, 'Hola');
 
 -- --------------------------------------------------------
 
@@ -150,11 +168,11 @@ INSERT INTO `config_videos` (`id`, `tpresen`, `ppresen`, `tvids`, `pvids`) VALUE
 --
 
 CREATE TABLE `productos` (
-  `id_producto` int(8) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `nombre_producto` varchar(30) NOT NULL,
   `descripcion_producto` varchar(100) NOT NULL,
   `precio_producto` float NOT NULL,
-  `telefono_contacto` varchar(11) NOT NULL
+  `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -168,6 +186,7 @@ CREATE TABLE `videos` (
   `titulo_video` varchar(50) NOT NULL,
   `url_video` varchar(100) NOT NULL,
   `descripcion` text NOT NULL,
+  `fecha_publicacion` date NOT NULL,
   `id_conferencista` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -175,11 +194,12 @@ CREATE TABLE `videos` (
 -- Volcado de datos para la tabla `videos`
 --
 
-INSERT INTO `videos` (`id`, `titulo_video`, `url_video`, `descripcion`, `id_conferencista`) VALUES
-(1, 'Titulo video 1', 'https://www.youtube.com/embed/IzXK4IUyquQ', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut', 1),
-(2, 'Título Video 2', 'https://www.youtube.com/embed/3FPFVquCdgc', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut', 2),
-(3, 'Título video 3', 'https://www.youtube.com/embed/mLvDeS2PzOM', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut', 3),
-(4, 'Titulo herramienta', 'http://localhost/OffCloud/aaa.html', 'adasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasdaadasda', 2);
+INSERT INTO `videos` (`id`, `titulo_video`, `url_video`, `descripcion`, `fecha_publicacion`, `id_conferencista`) VALUES
+(1, 'Titulo video 1', 'https://www.youtube.com/embed/IzXK4IUyquQ', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut', '2016-12-11', 1),
+(2, 'Título Video 2', 'https://www.youtube.com/embed/3FPFVquCdgc', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut', '2016-12-11', 2),
+(3, 'Título video 3', 'https://www.youtube.com/embed/mLvDeS2PzOM', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi utLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut', '2016-12-11', 3),
+(4, 'Titulo video 4', 'https://www.youtube.com/embed/7NpZOP3xO_U', 'Al sureste de Perú, se asentaba la cultura chiribaya. Esta cultura poco conocida es poco conocida, ya que a diferencia de otras culturas, no dejaron monumentos ni joyería de oro o piedras preciosas. Los conocemos gracias a las momias que se han encontrado en la región, debidas a circunstancias extraordinarias de preservación por momificación, en unos casos  en forma naturales inducida, en la que se secaba el cuerpo en el desierto, antes de que entrara en estado de descomposición. Esto permitió que se conservaran los materiales orgánicos, como los textiles y la comida, además de los propios cuerpos.', '2016-12-14', 4),
+(5, 'Titulo video 5', 'https://www.youtube.com/embed/7NpZOP3xO_U', 'Al sureste de Perú, se asentaba la cultura chiribaya. Esta cultura poco conocida es poco conocida, ya que a diferencia de otras culturas, no dejaron monumentos ni joyería de oro o piedras preciosas. Los conocemos gracias a las momias que se han encontrado en la región, debidas a circunstancias extraordinarias de preservación por momificación, en unos casos  en forma naturales inducida, en la que se secaba el cuerpo en el desierto, antes de que entrara en estado de descomposición. Esto permitió que se conservaran los materiales orgánicos, como los textiles y la comida, además de los propios cuerpos.\r\n', '2016-12-14', 2);
 
 --
 -- Índices para tablas volcadas
@@ -189,7 +209,13 @@ INSERT INTO `videos` (`id`, `titulo_video`, `url_video`, `descripcion`, `id_conf
 -- Indices de la tabla `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `conferencistas`
@@ -216,6 +242,13 @@ ALTER TABLE `config_videos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_categoria` (`id_categoria`);
+
+--
 -- Indices de la tabla `videos`
 --
 ALTER TABLE `videos`
@@ -226,6 +259,16 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `conferencistas`
 --
@@ -247,13 +290,24 @@ ALTER TABLE `config_tienda`
 ALTER TABLE `config_videos`
   MODIFY `id` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `videos`

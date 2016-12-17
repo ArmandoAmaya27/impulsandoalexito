@@ -2,7 +2,7 @@
 class ConfigController extends Controllers{
 	private $config;
 	public function __construct(){
-		parent::__construct();
+		parent::__construct(true);
 		$this->config = new Config;
 	}
 

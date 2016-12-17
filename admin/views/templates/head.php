@@ -25,6 +25,9 @@
     <!-- Preloader Css -->
     <link href="static/plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
 
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="static/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    
     <!-- Bootstrap Select Css -->
     <link href="static/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 

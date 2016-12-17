@@ -739,7 +739,7 @@ a{
   	font-size: 1.2em;
 }
 
-.box-content .box-content {
+.box-content {
   	position: relative;
   	z-index: 1;
 }
