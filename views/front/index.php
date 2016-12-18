@@ -70,130 +70,38 @@
             </div>
             
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".6s" data-wow-delay="1s"> 
-                    <figure>
-                        <div class="top-image">
-                            <img src="static/conferencistas/alex.png" class="fullScreen">
-                        </div>
-                        <figcaption>
-                            <h3>
-                                <span class="profile-heading">ALEX</span>
-                            </h3>
-                            <span class="profile-subheading">gshdghsdgdd</span>
-                            <p>Conferencista
-                            </p>
-                            <ul class="profile-scocial">
-                            
-                                <li>
-                                    <a href="#" class="icon-facebook"></a>
-                                </li>
+                <?php foreach ($confers as $confer_key => $confer): ?>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".6s" data-wow-delay="1s">
+                        <figure>
+                            <div class="top-image">
+                                <img src="<?= Fl::fspath('static/system/images/conferencistas/'.$confer_key.'/')[0] ?>" class="fullScreen">
+                            </div>
+                            <figcaption>
+                                <h3>
+                                    <span class="profile-heading"><a href="#"><?= $confers[$confer_key]['nombre'] ?></a></span>
+                                </h3>
+                                <span class="profile-subheading"><?= $confers[$confer_key]['rol'] ?></span>
+                                <p><?= substr($confers[$confer_key]['descripcion'],0,50) ?>...
+                                </p>
+                                <ul class="profile-scocial">
+                                
+                                    <li>
+                                        <a target="_blank"> href="<?= $confers[$confer_key]['facebook'] ?>" class="icon-facebook"></a>
+                                    </li>
 
-                                <li>
-                                    <a href="#" class="icon-twitter"></a> 
-                                </li>
+                                    <li>
+                                        <a target="_blank"> href="<?= $confers[$confer_key]['twitter'] ?>" class="icon-twitter"></a> 
+                                    </li>
 
-                                <li>
-                                    <a href="#" class="icon-gplus"></a>
-                                </li>
-                            </ul>
-                            <div class="figcap"></div>
-                        </figcaption> 
-                    </figure> 
-                </div>
-
-                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".7s" data-wow-delay="1s"> 
-                    <figure>
-                        <div class="top-image">
-                            <img src="static/conferencistas/carlos.png" class="fullScreen">
-                        </div>
-                        <figcaption>
-                            <h3>
-                                <span class="profile-heading">CARLOS</span>
-                            </h3>
-                            <span class="profile-subheading">Conferencista</span>
-                            <p>bla bla bla
-                            </p>
-                            <ul class="profile-scocial">
-                            
-                                <li>
-                                    <a href="#" class="icon-facebook"></a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="icon-twitter"></a> 
-                                </li>
-
-                                <li>
-                                    <a href="#" class="icon-gplus"></a>
-                                </li>
-                            </ul>
-                            <div class="figcap"></div>
-                        </figcaption> 
-                    </figure> 
-                </div>
-
-                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".8s" data-wow-delay="1s"> 
-                    <figure>
-                        <div class="top-image">
-                            <img src="static/conferencistas/jokio.png" class="fullScreen">
-                        </div>
-                        <figcaption>
-                            <h3>
-                                <span class="profile-heading">JOKIO</span>
-                            </h3>
-                            <span class="profile-subheading">Conferencista</span>
-                            <p> Descripcion
-                            </p>
-                            <ul class="profile-scocial">
-                            
-                                <li>
-                                    <a href="#" class="icon-facebook"></a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="icon-twitter"></a> 
-                                </li>
-
-                                <li>
-                                    <a href="#" class="icon-gplus"></a>
-                                </li>
-                            </ul>
-                            <div class="figcap"></div>
-                        </figcaption> 
-                    </figure> 
-                </div>
-
-                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".9s" data-wow-delay="1s"> 
-                    <figure>
-                        <div class="top-image">
-                            <img src="static/conferencistas/maxwell.png" class="fullScreen">
-                        </div>
-                        <figcaption>
-                            <h3>
-                                <span class="profile-heading">MAXWELL</span>
-                            </h3>
-                            <span class="profile-subheading">Conferencista</span>
-                            <p> Descripcion
-                            </p>
-                            <ul class="profile-scocial">
-                            
-                                <li>
-                                    <a href="#" class="icon-facebook"></a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="icon-twitter"></a> 
-                                </li>
-
-                                <li>
-                                    <a href="#" class="icon-gplus"></a>
-                                </li>
-                            </ul>
-                            <div class="figcap"></div>
-                        </figcaption> 
-                    </figure> 
-                </div>
-
+                                    <li>
+                                        <a target="_blank"> href="<?= $confers[$confer_key]['instagram'] ?>" class="icon-instagram"></a>
+                                    </li>
+                                </ul>
+                                <div class="figcap"></div>
+                            </figcaption> 
+                        </figure> 
+                    </div> 
+                <?php endforeach ?>
 
             </div>
 
@@ -216,25 +124,30 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
+            <?php foreach ($vids as $vid): 
+
+            $fecha = explode('-', $vid['fecha_publicacion']);
+            ?>
+
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
                 <div class="video_card wow zoomInDown" data-wow-duration=".6s" data-wow-delay="1s">
                     <div class="pull-left fullHeight">
                         <div class="fecha text-center">
-                            <span><i class="fa fa-calendar"></i> 22 th</span>
-                            Oct
+                            <span><i class="fa fa-calendar"></i> <?= $fecha[2] ?> de</span>
+                            <?= $meses[$fecha[1]] ?>
                         </div>
                         <div class="autor text-center">
                             <span><i class="fa fa-user"></i></span>
-                            Alex
+                            <?= $confers[$vid['id_conferencista']]['nombre'] ?>
                         </div>
                     </div>
                     <div class="pull-right fullHeight">
                         <figure class="fullScreen rel vid_cap">
-                            <img src="static/assets/img/blog/1.jpg" class="fullScreen">
+                            <img src="<?= Fl::fspath('static/system/images/videos/'.$vid['id'].'/')[0] ?>" class="fullScreen">
                             <figcaption class="fullWidth">
                                 <a href="#">
-                                    <span class="abs title">Título del video</span>
-                                    <p class="abs desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit....</p>
+                                    <span class="abs title"><?= $vid['titulo_video'] ?></span>
+                                    <p class="abs desc"><?= substr($vid['descripcion'], 0, 56) ?>....</p>
                                 </a>
                                 
                             </figcaption>
@@ -243,65 +156,10 @@
                 </div>
                 
             </div>
-
-            <div class="col-md-4">
-                <div class="video_card wow zoomInDown" data-wow-duration=".7s" data-wow-delay="1s">
-                    <div class="pull-left fullHeight">
-                        <div class="fecha text-center">
-                            <span><i class="fa fa-calendar"></i> 20 th</span>
-                            Oct
-                        </div>
-                        <div class="autor text-center">
-                            <span><i class="fa fa-user"></i></span>
-                            Jokio
-                        </div>
-                    </div>
-                    <div class="pull-right fullHeight">
-                        <figure class="fullScreen rel vid_cap">
-                            <img src="static/assets/img/blog/2.jpg" class="fullScreen">
-                            <figcaption class="fullWidth">
-                                <a href="#">
-                                    <span class="abs title">Título del video2</span>
-                                    <p class="abs desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit....</p>
-                                </a>
-                                
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="col-md-4">
-                <div class="video_card wow zoomInDown" data-wow-duration=".8s" data-wow-delay="1s">
-                    <div class="pull-left fullHeight">
-                        <div class="fecha text-center">
-                            <span><i class="fa fa-calendar"></i> 10 th</span>
-                            Oct
-                        </div>
-                        <div class="autor text-center">
-                            <span><i class="fa fa-user"></i></span>
-                            Christian
-                        </div>
-                    </div>
-                    <div class="pull-right fullHeight">
-                        <figure class="fullScreen rel vid_cap">
-                            <img src="static/assets/img/blog/3.jpg" class="fullScreen">
-                            <figcaption class="fullWidth">
-                                <a href="#">
-                                    <span class="abs title">Título del video</span>
-                                    <p class="abs desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit....</p>
-                                </a>
-                                
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                
-            </div>
+            <?php endforeach ?>
 
             <div class="col-md-12 all_vids text-center wow zoomIn">
-                <a href="#" class=""> Ver todos los videos <i class="fa fa-video-camera"></i> </a>
+                <a href="videos"> Ver todos los videos <i class="fa fa-video-camera"></i> </a>
             </div>
         </div>
         

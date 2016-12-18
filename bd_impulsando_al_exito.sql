@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-12-2016 a las 04:21:54
+-- Tiempo de generación: 18-12-2016 a las 21:08:11
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -80,9 +80,9 @@ CREATE TABLE `conferencistas` (
   `nombre` varchar(50) NOT NULL,
   `correo` varchar(70) NOT NULL,
   `rol` varchar(20) NOT NULL,
-  `facebook` varchar(100) NOT NULL,
-  `twitter` varchar(100) NOT NULL,
-  `instagram` varchar(100) NOT NULL,
+  `facebook` varchar(200) NOT NULL,
+  `twitter` varchar(200) NOT NULL,
+  `instagram` varchar(200) NOT NULL,
   `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -170,10 +170,20 @@ INSERT INTO `config_videos` (`id`, `tpresen`, `ppresen`, `tvids`, `pvids`) VALUE
 CREATE TABLE `productos` (
   `id` bigint(20) NOT NULL,
   `nombre_producto` varchar(30) NOT NULL,
-  `descripcion_producto` varchar(100) NOT NULL,
+  `descripcion_producto` text NOT NULL,
   `precio_producto` float NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_categoria` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre_producto`, `descripcion_producto`, `precio_producto`, `id_categoria`, `id_admin`) VALUES
+(1, 'Producto nuevo', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod    tempor incididunt ut lab', 2500, 2, 2),
+(2, 'le ase', 'asdasdasdasdasdasdasda', 1231120, 2, 2),
+(3, 'hola', 'adsadsa', 1231, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -246,7 +256,8 @@ ALTER TABLE `config_videos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoria` (`id_categoria`);
+  ADD KEY `id_categoria` (`id_categoria`),
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indices de la tabla `videos`
@@ -293,7 +304,7 @@ ALTER TABLE `config_videos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `videos`
 --
@@ -307,7 +318,9 @@ ALTER TABLE `videos`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `productos_ibfk_3` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `videos`

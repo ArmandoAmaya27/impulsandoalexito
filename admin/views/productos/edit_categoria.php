@@ -18,7 +18,7 @@
                             
                         </div>
                         <div class="body">
-                            <h2 class="card-inside-title font-underline">Categoría: <?= $cat[$id]['name'] ?></h2>
+                            <h2 class="card-inside-title font-underline">Categoría: <?= $cat[$id] ?></h2>
                             <form class="form-horizontal" id="categorias_form">
                                 
                                 <div class="alert hide" id="ajax_categorias"></div>
@@ -30,7 +30,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="name" id="name" class="form-control" placeholder="Título de la sección de conferencistas" maxlength="50" value="<?= $cat[$id]['name'] ?>">
+                                                <input type="text" name="name" id="name" class="form-control" placeholder="Título de la sección de conferencistas" maxlength="50" value="<?= $cat[$id] ?>">
                                             </div>
                                         </div>
                                     </div>

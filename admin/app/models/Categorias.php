@@ -52,7 +52,7 @@ final class Categorias extends Models{
 	}
 
 	final public function get_cats(){
-		return $this->select_array($this->db->pQuery("SELECT * FROM categorias", true));
+		return $this->select_array($this->db->pQuery("SELECT * FROM categorias", true),'name');
 	}
 
 	final public function delete($id){

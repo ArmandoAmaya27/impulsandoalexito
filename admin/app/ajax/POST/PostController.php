@@ -66,6 +66,14 @@ class PostController extends Controllers{
 		$model = new Categorias;
 		echo $this->AjaxResponse($model->edit($_POST));
 	}
+	public function productos_create(){
+		$model = new Productos;
+		echo $this->AjaxResponse($model->create($_POST));
+	}
+	public function productos_edit(){
+		$model = new Productos;
+		echo $this->AjaxResponse($model->edit($_POST));
+	}
 	
 }
 

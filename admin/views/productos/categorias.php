@@ -68,14 +68,14 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <?php foreach ((false != $cats) ? $cats : array() as $cat => $v): ?>
+                                    <?php foreach ((false != $cats) ? $cats : array() as $cat_key => $cat): ?>
                                     <tr>
-                                        <td><?= $cats[$cat]['name'] ?></td>
+                                        <td><?= $cat ?></td>
                                         <td class="text-center">
-                                            <a href="productos/editar_categoria/<?= $cats[$cat]['id'] ?>" class="btn btn-warning"> <i class="material-icons">edit</i></a>
+                                            <a href="productos/editar_categoria/<?= $cat_key ?>" class="btn btn-warning"> <i class="material-icons">edit</i></a>
                                         </td>
                                         <td class="js-sweetalert text-center">
-                                            <a href="productos/delete_categoria/<?= $cats[$cat]['id'] ?>" class="btn btn-danger sweet-btn-alert" data-type="cancel"> <i class="material-icons">delete</i></a>
+                                            <a href="productos/delete_categoria/<?= $cat_key ?>" class="btn btn-danger sweet-btn-alert" data-type="cancel"> <i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
                                     <?php endforeach ?> 

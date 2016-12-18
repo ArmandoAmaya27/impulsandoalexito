@@ -274,6 +274,7 @@ a{
 .profile-content{
 	border-left: 1px solid #337ab7;
 	padding-bottom: 10px;
+	min-height: 405px;
 }
 .user-info-profile .tophd{
 	height: 145px;
@@ -327,7 +328,9 @@ a{
 }
 
 #profile-user b.titl,
-#profile-edit b.titl{
+#profile-edit b.titl,
+#info-perfil b.titl,
+#perfil-desc b.titl{
 	display: block;
 	margin-bottom: 10px;
 }
@@ -367,4 +370,17 @@ a{
 	color: #fff !important;
 	margin: 0;
 }
+.img-prod{
+	height: 405px;
+}
 
+#info-perfil .info_prod{
+	border-bottom: 1px solid #337ab7;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	margin-bottom: 10px;
+}
+#info-perfil .info_prod span{
+	margin-left: 10px;
+}

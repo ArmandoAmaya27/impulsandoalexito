@@ -443,13 +443,15 @@ a{
     color: #FFFFFF;
 }
 
-.profile_team .profile .profile-heading, .profile_team .profile p {
+.profile_team .profile .profile-heading, .profile_team .profile p,
+.profile_team .profile .profile-heading a {
     color: #fff;
 }
 
 .profile_team .profile .profile-heading {
     font-size: 26px; 
 }
+
 
 .videos_section .video_card{
 	height: 270px;
