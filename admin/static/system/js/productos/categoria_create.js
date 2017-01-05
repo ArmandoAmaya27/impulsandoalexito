@@ -41,6 +41,7 @@ if (document.getElementById('categorias_submit')) {
 }
 
 if (document.getElementById('categorias_form')) {
+	document.getElementById('categorias_form').addEventListener('submit', function(e){e.preventDefault();return false;});
 	document.getElementById('categorias_form').addEventListener('keypress', function(e){
 		if (!e) e = window.event;
 		var k = e.keyCode || e.which;

@@ -1,6 +1,8 @@
 <?= $this->insert('templates/header') ?>
     
-    <?= $this->insert('templates/nav') ?>
+    <?= $this->insert('templates/nav', array(
+        'navbar_view' => ''
+    )) ?>
     
     <!-- BANNER -->
     <div class="banner_page"></div>    
@@ -31,10 +33,9 @@
                         <h3>Categorías</h3>
                         <ul>
                             <li data-filter="all">Todos</li>
-                            <li data-filter="1">categoria1</li>
-                            <li data-filter="2">categoria2</li>
-                            <li data-filter="3">categoria3</li>
-                            <li data-filter="4">categoria4</li>
+                            <?php foreach (false != $cats ? $cats : array() as $cat_id => $cat): ?>
+                            <li data-filter="1"><?= $cats[$cat_id]['name'] ?></li>
+                            <?php endforeach ?>
                         </ul>
                     </div>
                 </header>
@@ -43,15 +44,16 @@
         </div>
 
         <div class="container text-center">
+            <?php if (false != $prods): foreach($prods as $prod):?>
             <div class="box-wrapper">
-                <img src="http://www.freefoodphotos.com/imagelibrary/herbs/slides/chilis.jpg">
+                <img height="200px" src="<?= Fl::fspath('static/system/images/productos/'.$prod['id'].'/')[0] ?>">
                 <div class="box-content">
-                    <a href="javascript:void(0)" class="buy">
+                    <a href="#product_<?= $prod['id'] ?>" data-toggle="modal" class="buy">
                         <span><i class="fa fa-cart-plus"></i></span>
                     </a>
-                    <div class="title">Chilis Papers</div>
-                    <div class="desc">Lorem ipsum dolor sit amet.</div>
-                    <span class="price">5.67$</span>
+                    <div class="title"><?= $prod['nombre_producto'] ?></div>
+                    <div class="desc"><?= substr($prod['descripcion_producto'], 0, 20) ?>...</div>
+                    <span class="price"><?= $prod['precio_producto'] ?> BS</span>
                     <div class="footer">
                         <ul>
                             <li class="fa fa-star"></li>
@@ -64,110 +66,47 @@
                 </div>
             </div>
 
-            <div class="box-wrapper">
-                <img src="http://www.freefoodphotos.com/imagelibrary/herbs/slides/chilis.jpg">
-                <div class="box-content">
-                    <a href="javascript:void(0)" class="buy">
-                        <span><i class="fa fa-cart-plus"></i></span>
-                    </a>
-                    <div class="title">Chilis Papers</div>
-                    <div class="desc">Lorem ipsum dolor sit amet.</div>
-                    <span class="price">5.67$</span>
-                    <div class="footer">
-                        <ul>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star-o"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div class="modal fade product_modal" id="product_<?= $prod['id'] ?>"" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        
+                        <div class="modal-body clearfix">
+                            <div class="row product_details clearfix">
 
-            <div class="box-wrapper">
-                <img src="http://www.freefoodphotos.com/imagelibrary/herbs/slides/chilis.jpg">
-                <div class="box-content">
-                    <a href="javascript:void(0)" class="buy">
-                        <span><i class="fa fa-cart-plus"></i></span>
-                    </a>
-                    <div class="title">Chilis Papers</div>
-                    <div class="desc">Lorem ipsum dolor sit amet.</div>
-                    <span class="price">5.67$</span>
-                    <div class="footer">
-                        <ul>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star-o"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                                <div class="col-md-5 nopd col-lg-5 col-xs-12 col-sm-12 product_details_img">
+                                    
+                                    <img class="fullScreen" src="<?= Fl::fspath('static/system/images/productos/'.$prod['id'].'/')[0] ?>">
+                                </div>
+                                <div class="col-md-7 col-lg-7 col-xs-12 col-sm-12 product_details_info">
+                                    <h2 class="text-center"><?= $prod['nombre_producto'] ?></h2>
+                                    <small>Categoría: <?= $cats[$prod['id_categoria']]['name'] ?></small>
+                                    <p><?= $prod['descripcion_producto'] ?></p>
+                                    <hr>
 
-            <div class="box-wrapper">
-                <img src="http://www.freefoodphotos.com/imagelibrary/herbs/slides/chilis.jpg">
-                <div class="box-content">
-                    <a href="javascript:void(0)" class="buy">
-                        <span><i class="fa fa-cart-plus"></i></span>
-                    </a>
-                    <div class="title">Chilis Papers</div>
-                    <div class="desc">Lorem ipsum dolor sit amet.</div>
-                    <span class="price">5.67$</span>
-                    <div class="footer">
-                        <ul>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star-o"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                                    <div class="infop clearfix">
+                                        <span class="col-xs-6 text-left">Vendedor:</span>
+                                        <span class="col-xs-6"><?= $users[$prod['id_admin']]['nombre'] . ' ' . $users[$prod['id_admin']]['apellido'] ?></span>
+                                        <span class="col-xs-6">Precio:</span>
+                                        <span class="col-xs-6"><?= $prod['precio_producto']  . ' Bs'?></span>                                        
+                                    </div>
 
-            <div class="box-wrapper">
-                <img src="http://www.freefoodphotos.com/imagelibrary/herbs/slides/chilis.jpg">
-                <div class="box-content">
-                    <a href="javascript:void(0)" class="buy">
-                        <span><i class="fa fa-cart-plus"></i></span>
-                    </a>
-                    <div class="title">Chilis Papers</div>
-                    <div class="desc">Lorem ipsum dolor sit amet.</div>
-                    <span class="price">5.67$</span>
-                    <div class="footer">
-                        <ul>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star-o"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                                    
+                                </div>
 
-            <div class="box-wrapper">
-                <img src="http://www.freefoodphotos.com/imagelibrary/herbs/slides/chilis.jpg">
-                <div class="box-content">
-                    <a href="javascript:void(0)" class="buy">
-                        <span><i class="fa fa-cart-plus"></i></span>
-                    </a>
-                    <div class="title">Chilis Papers</div>
-                    <div class="desc">Lorem ipsum dolor sit amet.</div>
-                    <span class="price">5.67$</span>
-                    <div class="footer">
-                        <ul>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star-o"></li>
-                        </ul>
+                
+                            </div>
+
+                        </div>
+                       
                     </div>
-                </div>
+                </div>                
             </div>
+            <?php endforeach; else: ?>
+            <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información!</strong> No existen productos en esta sección. </div> 
+            <?php endif ?>
+            
+
+            
         </div>
     </section>
     <!-- FIN PRODUCTOS DE LA TIENDA -->

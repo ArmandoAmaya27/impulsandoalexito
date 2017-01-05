@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2016 a las 21:08:11
+-- Tiempo de generación: 05-01-2017 a las 20:10:39
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -67,7 +67,23 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`id`, `name`) VALUES
 (1, 'Marketing'),
 (2, 'Regulados'),
-(3, 'Hola');
+(3, 'hola'),
+(4, 'Nueva'),
+(5, 'Otra');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentario` int(8) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `comentario` text NOT NULL,
+  `id_video` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -182,7 +198,7 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `nombre_producto`, `descripcion_producto`, `precio_producto`, `id_categoria`, `id_admin`) VALUES
 (1, 'Producto nuevo', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod    tempor incididunt ut lab', 2500, 2, 2),
-(2, 'le ase', 'asdasdasdasdasdasdasda', 1231120, 2, 2),
+(2, 'le ase', 'asdasdasdasdasdasdasda', 60.2, 2, 1),
 (3, 'hola', 'adsadsa', 1231, 2, 2);
 
 -- --------------------------------------------------------
@@ -279,7 +295,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `conferencistas`
 --

@@ -1,0 +1,33 @@
+
+@media (min-width: 768px) {
+ 	.product_modal .modal-dialog{
+		width: 700px;
+	}
+}
+.product_modal .modal-dialog{
+	border-radius: 0;
+}
+.product_details .product_details_img{
+	height: 200px;
+}
+.product_details .product_details_info p{
+	line-height: 1.5;
+	color: #666;
+	font-size: 18px;
+	text-align: justify;
+}
+.product_details .product_details_info h2{
+	margin-top: 0;
+	font-family: 'Satisfy', cursive;
+	color: dodgerblue;
+	font-weight: bold;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+.product_details .product_details_info > small{
+	color: #bbb;
+	display: block;
+	text-align: left;
+	font-weight: 700;
+	margin:5px 0;
+}

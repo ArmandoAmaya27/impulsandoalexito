@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="static/default/fontello/css/set1.css">
     <link rel="stylesheet" href="static/default/fontello/css/set1-embedded.css">
     <link rel="stylesheet" href="static/default/fontello/css/animation.css">
+
     <!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="static/default/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="static/assets/css/bootstrap.css">
@@ -26,8 +27,8 @@
     <!-- ESTILOS PROPIOS -->
     <link rel="stylesheet" href="static/assets/css/style.css">
     <link rel="stylesheet" href="static/assets/css/card_color.css">
-    
-   
+
+
 </head>
 <body>
 	

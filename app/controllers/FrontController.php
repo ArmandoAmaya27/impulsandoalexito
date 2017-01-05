@@ -22,12 +22,18 @@ class FrontController extends Controllers {
 			'11' => 'Noviembre',
 			'12' => 'Diciembre'
 		);
+
+	
+
 		echo $this->view->render('front/index', array(
 			'princ' => $this->config->get_config_princ(),
 			'confers' => $this->config->getConfers(),
 			'vids' => $this->config->getVideos(false,'LIMIT 3'),
-			'meses' => $meses
-		));
+			'meses' => $meses 
+			
+		)); 
+
+
 	}
 
 	

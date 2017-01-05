@@ -1,0 +1,322 @@
+@import "compass/css3";
+
+@import url(http://s.cdpn.io/1202/crystallo_compiled_1.css);
+@import url(http://fonts.googleapis.com/css?family=Basic|Armata);
+@import url(http://weloveiconfonts.com/api/?family=typicons);
+
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (min-width: 67em) { @content; }
+  }
+  @if $point == mama-bear {
+    @media (max-width: 66em) { @content; }
+  }
+  @if $point == baby-bear {
+    @media (max-width: 44em) { @content; };
+  }
+}
+
+/* typicons */
+[class*="typicons-"]:before,
+*:before { 
+  font-family: 'Typicons', sans-serif;
+  font-size:1.5em;
+  vertical-align:bottom;
+}
+
+/* vars */
+$size-alpha: .45em;
+$color-zeta: rgba(#ff66ef, .8);
+
+/* Helper */
+.move--left {
+  text-align:left;
+}
+
+.move--right {
+  text-align:right;
+}
+
+.move--center {
+  text-align:center;
+}
+*{
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+
+  color: #000;
+  
+  $color-helper-alpha: #c7c2d7;
+  $color-helper-beta: #ecd6B2;
+  $color-helper-gamma: #b2ac99;
+  $color-helper-delta: #63cce3;
+  
+  @include background-image(
+    linear-gradient(125deg, rgba($color-helper-alpha, .3) 0%, rgba($color-helper-beta, .3) 33%, rgba($color-helper-gamma, .3) 71%, rgba($color-helper-delta, .3) 95%),
+    linear-gradient(-88deg, rgba($color-helper-alpha, .8) 0%, rgba($color-helper-beta, .3) 33%, rgba($color-helper-gamma, .7) 71%, rgba($color-helper-delta, .7) 95%),
+    linear-gradient(23deg, rgba($color-helper-alpha, 1) 0%, rgba($color-helper-beta, .6) 33%, rgba($color-helper-gamma, 1) 71%, rgba($color-helper-delta, 1) 95%)
+  );
+}
+
+a {
+  text-decoration:none;
+  padding-bottom:.25em;
+  color:rgba(#888, .8); 
+  @include transition(
+    color .25s ease-in-out,
+    border .25s ease-in-out
+  );
+  
+  &:hover {
+    color:#000;
+    border-bottom-color:rgba(#000, .35);
+  }
+}
+
+h1 {
+  font:bold 4em "Basic", sans-serif;
+  margin:0 0 .5em 0;
+}
+
+h2 {
+  font-size:3em;
+  line-height:1.75em;
+  margin:0;
+  color:#fff;
+}
+
+h3 {
+  font: bold 2em "Armata", sans-serif;
+}
+
+img {
+  margin:0;
+  padding:0;
+}
+
+p {
+  font-size:1.2em;
+}
+
+ul {
+  margin:0;
+  padding:0;
+  
+  li {
+    margin:1.05em 0;
+    line-height:1.25;
+  }
+  
+  &.list--alpha {
+    list-style-type:none;
+    font-size:1.4em;
+    
+    li {
+      &:before {
+        content:')';
+        color:rgba(#000, .5);
+      }
+        
+      a {
+        vertical-align:top;
+      }
+    }
+    
+    &.list--alpha__mod {
+      li {
+        &:before {
+          content:'o';
+        }
+      }
+    }
+  }
+}
+
+article {
+  padding:5em 0;
+  
+  @include breakpoint(baby-bear) {
+    padding:.5em 0;
+  }
+  
+  > section {
+    background:#fff;
+    box-shadow:0 0 0 $size-alpha rgba(#fff, .55);
+    padding:1.5em 5em;
+    
+  @include breakpoint(baby-bear) {
+    padding:.5em .75em;
+  }
+    
+    &.section--alpha {
+      background:rgba(#F38973, .8);
+    }
+    
+    &.section--beta {
+      background:rgba(#C18DBE, .8);
+    }
+    
+    &.section--gamma {
+      background:rgba(#F8BC76, .8);
+    }
+    
+    &.section--delta {
+      background:rgba(#8AD6D6, .8);
+    }
+    
+    &.section--epsilon {
+      background:rgba(#97CE68, .8);
+    }
+    
+    &.section--zeta {
+      background:$color-zeta;
+    }
+    
+    &:first-child {
+      padding-top:5em;
+    }
+      
+    &:last-child {
+      padding-bottom:5em;  
+    }
+  }
+  
+  &[data-high="1"] {
+    margin-top:2em;
+    background:rgba(#fff, .45);
+    
+    > section {
+      padding:5em 0;
+      
+      @include breakpoint(baby-bear) {
+        padding:2.5em .75em;
+      }
+      
+      p {
+        font-size:1.65em;
+        line-height:1.85em;
+        padding:.75em;
+      }
+      
+      img {
+        box-shadow:0 0 0 $size-alpha rgba(#ccc, .15);
+      }
+        
+      div {
+        padding: 0 .5em;
+      }
+    }
+  }
+  
+  &[data-high="2"] {
+    margin-top:2em;
+    background:rgba(#fff, .45);
+  }
+}
+
+/*
+ * Buttons
+ */
+button {
+  padding:1.5em .5em;
+  font-size:1.5em;
+  font-weight:bold;
+  text-transform:uppercase;
+  box-shadow:inset 0 0 0 $size-alpha rgba(#fff, 1);
+  border:none;
+  color:#fff;
+  @include transition(
+    color .25s ease-in-out,
+    background .35s ease-in-out
+  );
+  
+  &.section--zeta {
+    background:$color-zeta;
+      
+    &:hover {
+      color:#000;
+      background:rgba($color-zeta, .5);
+    }
+  }
+}
+
+/*
+ * Kudos
+ */
+$kudos_duration: 1.5s;
+$kudos_duration_finish: .45s;
+$kudos_width: 8em;
+$kudos_height: 8em;
+$kudos_color_alpha: #fff;
+$kudos_color_beta: rgba(#ddd552, 1);
+
+.kudos {
+  font-size:2em;
+  position:relative;
+  max-width:$kudos_width;
+  max-height:$kudos_height;
+  margin:0 auto;
+  background:$kudos_color_alpha;
+  
+  box-shadow:
+    inset 0 0 0 .25em rgba(#ccc, .15),
+    inset 0 0 0 $kudos_width / 3 $kudos_color_alpha,
+    inset 0 0 0 $kudos_width rgba(#97CE68, .8)
+  ; 
+  line-height:$kudos_height; 
+  text-align:center;
+  @include transition(box-shadow $kudos_duration_finish / 2 ease-out);
+  
+  &:before {
+    @include transition(font-size $kudos_duration_finish ease-in);
+    font-size:0;
+  }
+  
+  &.active {
+    @include transition(box-shadow $kudos_duration linear);
+    box-shadow:
+      inset 0 0 0 .25em rgba(#ccc, .55),
+      inset 0 0 0 0 $kudos_color_alpha,
+      inset 0 0 0 .75em rgba($kudos_color_beta, .75),
+      inset 0 0 0 $kudos_width $kudos_color_beta
+    ;
+      
+    &:after {
+       content: 'Don\'t move!';
+    }
+  }
+  
+  &.finish {
+    @include transition(
+      box-shadow $kudos_duration_finish linear,
+      transform $kudos_duration_finish * 1.25 ease-in-out
+    );
+    box-shadow:
+      inset 0 0 0 .25em rgba($kudos_color_beta, .5),
+      inset 0 0 0 .5em $kudos_color_alpha,
+      inset 0 0 0 .75em rgba($kudos_color_beta, .75),
+      inset 0 0 0 1em $kudos_color_alpha,
+      inset 0 0 0 0 $kudos_color_alpha,
+      inset 0 0 0 $kudos_width $kudos_color_beta
+    ;
+    
+    &:before {  
+      font-size:2.25em;
+      color:$kudos_color_alpha;
+      line-height:$kudos_height / 2.125;
+    }
+  }
+  
+  &:after {
+    position:absolute;
+    content: attr(data-amount) ' Kudos';
+    bottom:-1.25em;
+    left:0;
+    width:$kudos_width;
+    text-align:center;
+    line-height:1em;
+    font-variant:small-caps;
+  }
+}

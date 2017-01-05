@@ -79,3 +79,4 @@ function video_cards(){
 		}
 	});
 }
+

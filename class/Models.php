@@ -66,6 +66,7 @@ abstract class Models{
 
 	protected function select_array($array, $camp = ''){
 		Util::Requir('Val');
+		$c = array();
 		if (Val::isEmpty($camp)) {
 			foreach ($array as $ar) {
 				$c[$ar['id']] = $ar;

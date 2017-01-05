@@ -91,3 +91,4 @@
     <script>
         new WOW().init();
     </script>
+    <script src="static/assets/js/default.js"></script>

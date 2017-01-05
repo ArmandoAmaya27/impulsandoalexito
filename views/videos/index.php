@@ -1,6 +1,8 @@
 <?= $this->insert('templates/header') ?>
     
-    <?= $this->insert('templates/nav') ?>
+    <?= $this->insert('templates/nav', array(
+        'navbar_view' => ''
+    )) ?>
     
     <!-- BANNER -->
     <div class="banner_page"></div>    
@@ -27,42 +29,40 @@
                     <p>
                         <?= $vids[0]['pvids'] ?>
                     </p>
-                    <div class="categories">
+                    <!-- <div class="categories">
                         <h3>Categorías</h3>
                         <ul>
                             <li data-filter="all">Todos</li>
-                            <li data-filter="1">categoria1</li>
-                            <li data-filter="2">categoria2</li>
-                            <li data-filter="3">categoria3</li>
-                            <li data-filter="4">categoria4</li>
+                            
                         </ul>
-                    </div>
+                    </div> -->
                 </header>
             </div>
 
         </div>
 
         <div class="container clearfix active-with-click">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <!-- Red, Blue-Grey, Pink, Purple, Indigo, Blue, Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange, Deep-Orange, Brown, Grey, Blue-Grey -->
 
-                <article class="material-card Teal"> <!-- Le cambias esta clase Red por una de las de arriba-->
+            <?php foreach ($videos as $vid): ?>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+               
+                <article class="material-card Teal"> <
                     <h2>
-                        <span>Maxlwell Apellido</span>
+                        <span><?= $confers[$vid['id_conferencista']]['nombre'] ?></span>
                         <strong>
-                            <a href="#">
+                            <a href="videos/vervideo/<?= $vid['id'] ?>">
                                 <i class="fa fa-fw fa-star"></i>
-                                TÍTULO DEL VIDEO
+                                <?= $vid['titulo_video'] ?>
                             </a>
                         </strong>
                     </h2>
                     
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="fullScreen" src="static/conferencistas/maxwell.png">
+                            <img class="fullScreen" src="<?= Fl::fspath('static/system/images/conferencistas/' . $vid['id_conferencista'] . '/')[0] ?>">
                         </div>
                         <div class="mc-description">
-                            He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...
+                            <?= substr($vid['descripcion'], 0, 180) ?> ...
                         </div>
                     </div>
                     <a class="mc-btn-action">
@@ -79,7 +79,9 @@
                     </div>
 
                 </article>
-            </div>
+            </div>  
+            <?php endforeach ?>
+            
         </div>
     </section>
     <!-- FIN PRODUCTOS DE LA TIENDA -->

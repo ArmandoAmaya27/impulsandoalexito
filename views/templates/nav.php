@@ -1,5 +1,5 @@
     <!-- MENU DE LA PAGINA -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top <?= $navbar_view ?>">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -27,6 +27,9 @@
 
                                 <li>
                                     <a href="videos">Videos</a>
+                                </li>
+                                <li>
+                                    <a href="sobre mí">Sobre mí</a>
                                 </li>
 
                             </ul>

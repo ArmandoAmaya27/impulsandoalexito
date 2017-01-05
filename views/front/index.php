@@ -1,6 +1,8 @@
 <?= $this->insert('templates/header') ?>
     
-    <?= $this->insert('templates/nav') ?>
+    <?= $this->insert('templates/nav', array(
+        'navbar_view' => ''
+    )) ?>
 
     <!-- SLIDER DE LA PAGINA -->
     <div class="main_slider fullScreen">
@@ -67,10 +69,10 @@
                         <?= $princ[0]['txtconf'] ?>
                     </p>
                 </header>
-            </div>
+            </div> 
             
             <div class="row">
-                <?php foreach ($confers as $confer_key => $confer): ?>
+                <?php if(sizeof($confers) >0): foreach ($confers as $confer_key => $confer): ?> 
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".6s" data-wow-delay="1s">
                         <figure>
                             <div class="top-image">
@@ -78,30 +80,32 @@
                             </div>
                             <figcaption>
                                 <h3>
-                                    <span class="profile-heading"><a href="#"><?= $confers[$confer_key]['nombre'] ?></a></span>
+                                    <span class="profile-heading"><a href="conferencista/perfil/<?= $confer_key  ?>"> <?= $confers[$confer_key]['nombre'] ?></a></span> 
                                 </h3>
                                 <span class="profile-subheading"><?= $confers[$confer_key]['rol'] ?></span>
                                 <p><?= substr($confers[$confer_key]['descripcion'],0,50) ?>...
                                 </p>
-                                <ul class="profile-scocial">
+                                <ul class="profile-scocial"> 
                                 
                                     <li>
-                                        <a target="_blank"> href="<?= $confers[$confer_key]['facebook'] ?>" class="icon-facebook"></a>
+                                        <a target="_blank" href="<?= $confers[$confer_key]['facebook'] ?>" class="icon-facebook"></a>
                                     </li>
 
                                     <li>
-                                        <a target="_blank"> href="<?= $confers[$confer_key]['twitter'] ?>" class="icon-twitter"></a> 
+                                        <a target="_blank" href="<?= $confers[$confer_key]['twitter'] ?>" class="icon-twitter"></a> 
                                     </li>
 
                                     <li>
-                                        <a target="_blank"> href="<?= $confers[$confer_key]['instagram'] ?>" class="icon-instagram"></a>
+                                        <a target="_blank" href="<?= $confers[$confer_key]['instagram'] ?>" class="icon-instagram"></a> 
                                     </li>
                                 </ul>
                                 <div class="figcap"></div>
                             </figcaption> 
                         </figure> 
                     </div> 
-                <?php endforeach ?>
+                <?php endforeach;else: ?>
+                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información:</strong> Todavía no existen conferencistas para esta sección. </div> 
+                <?php endif; ?>
 
             </div>
 
@@ -124,7 +128,7 @@
         </div>
 
         <div class="row">
-            <?php foreach ($vids as $vid): 
+            <?php if(false != $vids): foreach ($vids as $vid): 
 
             $fecha = explode('-', $vid['fecha_publicacion']);
             ?>
@@ -156,7 +160,9 @@
                 </div>
                 
             </div>
-            <?php endforeach ?>
+            <?php endforeach;else: ?>
+                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información:</strong> Todavía no existen videos para esta sección. </div> 
+                <?php endif; ?>
 
             <div class="col-md-12 all_vids text-center wow zoomIn">
                 <a href="videos"> Ver todos los videos <i class="fa fa-video-camera"></i> </a>

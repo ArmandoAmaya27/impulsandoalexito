@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Satisfy);
 @import url(https://fonts.googleapis.com/css?family=Acme);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
+@import url('videos.css');
+@import url('productos.css');
 body,html{
 	max-width: 100%;
 	height: 100%;
@@ -34,6 +36,9 @@ ul{
 a{
 	color: #1abc9c;
 	text-decoration: none;
+}
+.nopd{
+	padding: 0;
 }
 .fullWidth{
 	width: 100%;
@@ -69,6 +74,10 @@ a{
 	box-shadow: 0 1px 9px rgba(0, 0, 0, 0.4);
 	opacity: 0;
 	display: none;
+}
+.navbar-default.navbar-view{
+	display: block !important;
+	opacity: 1 !important;
 }
 .left-cell,
 .right-cell{
@@ -729,7 +738,7 @@ a{
 }
 
 .box-content .title {
-  	font-size: 2em;
+  	font-size: 1.3em;
   	font-weight: 900;
   	text-transform: uppercase;
   	margin: 0;
@@ -791,7 +800,7 @@ a{
   	display: none;
 }
 .box-content .price {
-  	font-size: 2em;
+  	font-size: 1.3em;
   	font-weight: 900;
   	display: block;
   	width: 100px;
@@ -1135,4 +1144,16 @@ a{
 .sep:after
 {
 	height: 2px;
+}
+.frame{
+	width: 100%;
+	height: 500px;
+}
+.estilo-frame{
+margin: 5% 25%;
+
+}
+
+.letra-black{
+	color: #000;
 }

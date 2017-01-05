@@ -1,6 +1,8 @@
 <?= $this->insert('templates/header') ?>
     
-    <?= $this->insert('templates/nav') ?>
+    <?= $this->insert('templates/nav', array(
+        'navbar_view' => ''
+    )) ?>
     
     <!-- BANNER -->
     <div class="banner_page"></div>    
@@ -11,43 +13,42 @@
 
     <div class="container">
 
-        <h2 class="text-center">VIDEOS DE (NOMBRE DE CONFEReNCISTA)</h2>
+        <h2 class="text-center">VIDEOS DE <?= $datosc['nombre'] ?></h2> 
         <div class="info-confe clearfix"> 
             <div class="imag pull-left">
-                <img class="fullScreen" src="static/conferencistas/alex.png"> 
+                <img class="fullScreen" src="<?=Fl::fspath('static/system/images/conferencistas/'.$datosc['id'].'/')[0];?>">
             </div>
-            <div class="descripcion-confe pull-left">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+            <div class="descripcion-confe pull-left"> 
+                <p><?= $datosc['descripcion']; ?></p>
             </div>
         </div> 
         <hr class="rel sep">
 
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12"> 
-                <!-- Red, Blue-Grey, Pink, Purple, Indigo, Blue, Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange, Deep-Orange, Brown, Grey, Blue-Grey -->
+        <div class="row"> 
+            
+                
+                <?php if (false!=$vids): ?>
 
-                <article class="material-card Teal"> <!-- Le cambias esta clase Red por una de las de arriba-->
+                    <?php foreach($vids as $vid): ?>
+                    <div class="col-md-4 col-sm-6 col-xs-12"> 
+                <!-- Red, Blue-Grey, Pink, Purple, Indigo, Blue, Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange, Deep-Orange, Brown, Grey, Blue-Grey -->
+                    <article class="material-card Teal"> <!-- Le cambias esta clase Red por una de las de arriba-->
                     <h2>
-                        <span>Maxlwell Apellido</span>
+                        <span><?= $datosc['nombre'] ?></span>
                         <strong>
                             <a href="#">
                                 <i class="fa fa-fw fa-star"></i>
-                                TÍTULO DEL VIDEO
+                                <?= $vid['titulo_video'] ?>
                             </a>
                         </strong>
                     </h2>
                     
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="fullScreen" src="static/conferencistas/maxwell.png"> 
+                            <img class="fullScreen" src="<?=Fl::fspath('static/system/images/videos/'.$vid['id'].'/')[0];?>"> 
                         </div>
                         <div class="mc-description">
-                            He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...
+                            <?= $vid['descripcion'] ?>
                         </div>
                     </div>
                     <a class="mc-btn-action"> 
@@ -63,85 +64,21 @@
                         <a href="#" class="fa fa-fw fa-google-plus"></a>
                     </div>
 
-                </article>
-            </div>
+                    </article>
+                    </div>
 
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <!-- Red, Blue-Grey, Pink, Purple, Indigo, Blue, Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange, Deep-Orange, Brown, Grey, Blue-Grey -->
 
-                <article class="material-card Teal"> <!-- Le cambias esta clase Red por una de las de arriba-->
-                    <h2>
-                        <span>Maxlwell Apellido</span>
-                        <strong>
-                            <a href="#">
-                                <i class="fa fa-fw fa-star"></i> 
-                                TÍTULO DEL VIDEO
-                            </a>
-                        </strong>
-                    </h2>
+                    <?php endforeach ?>
                     
-                    <div class="mc-content">
-                        <div class="img-container">
-                            <img class="fullScreen" src="static/conferencistas/maxwell.png">
-                        </div>
-                        <div class="mc-description">
-                            He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...
-                        </div>
-                    </div>
-                    <a class="mc-btn-action">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="mc-footer">
-                        <h4>
-                            Social
-                        </h4>
-                        <a href="#" class="fa fa-fw fa-facebook"></a>
-                        <a href="#" class="fa fa-fw fa-twitter"></a>
-                        <a href="#" class="fa fa-fw fa-linkedin"></a>
-                        <a href="#" class="fa fa-fw fa-google-plus"></a>
-                    </div>
+                <?php else:  ?>
+                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información!</strong> No existen videos de éste conferencista </div> 
 
-                </article>
-            </div>
 
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <!-- Red, Blue-Grey, Pink, Purple, Indigo, Blue, Cyan, Teal, Green, Light-Green, Lime, Yellow, Amber, Orange, Deep-Orange, Brown, Grey, Blue-Grey -->
+                <?php endif ?>
+                
+            
 
-                <article class="material-card Teal"> <!-- Le cambias esta clase Red por una de las de arriba-->
-                    <h2>
-                        <span>Maxlwell Apellido</span>
-                        <strong>
-                            <a href="#">
-                                <i class="fa fa-fw fa-star"></i>
-                                TÍTULO DEL VIDEO
-                            </a>
-                        </strong>
-                    </h2>
-                    
-                    <div class="mc-content">
-                        <div class="img-container">
-                            <img class="fullScreen" src="static/conferencistas/maxwell.png">
-                        </div>
-                        <div class="mc-description">
-                            He has appeared in more than 100 films and television shows, including The Deer Hunter, Annie Hall, The Prophecy trilogy, The Dogs of War ...
-                        </div>
-                    </div>
-                    <a class="mc-btn-action">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="mc-footer">
-                        <h4>
-                            Social
-                        </h4>
-                        <a href="#" class="fa fa-fw fa-facebook"></a>
-                        <a href="#" class="fa fa-fw fa-twitter"></a>
-                        <a href="#" class="fa fa-fw fa-linkedin"></a>
-                        <a href="#" class="fa fa-fw fa-google-plus"></a>
-                    </div>
-
-                </article>
-            </div>
-
+            
 
         </div>
     </div>
