@@ -22,7 +22,7 @@ abstract class Models{
 		is_bool($new) ?: trigger_error($new . ' Debe ser un valor Booleano', E_USER_ERROR); 
 		$this->db = Database::Connect($db,$driver,$new);
 
-		$this->getArg = (is_numeric($request->getArg()) && $request->getArg() > 0 && null != $request->getArg()) ? $request->getArg() : null;
+		$this->getArg = (null != $request->getArg()) ? $request->getArg() : null;
 
 		$userId = isset($_SESSION[SESSION_ID]) ? $_SESSION[SESSION_ID] : 0;
 	}

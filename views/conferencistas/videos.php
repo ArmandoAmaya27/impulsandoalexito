@@ -1,4 +1,4 @@
-<?= $this->insert('templates/header') ?>
+<?=  $this->insert('templates/header') ?>
     
     <?= $this->insert('templates/nav', array(
         'navbar_view' => ''
@@ -36,9 +36,9 @@
                     <h2>
                         <span><?= $datosc['nombre'] ?></span>
                         <strong>
-                            <a href="#">
+                            <a href="videos/ver/<?= $datosc['id']?>-<?=$vid['id'] ?>-<?= Str::slug($vid['titulo_video'])?>"> 
                                 <i class="fa fa-fw fa-star"></i>
-                                <?= $vid['titulo_video'] ?>
+                                <?= $vid['titulo_video'] ?> 
                             </a>
                         </strong>
                     </h2>

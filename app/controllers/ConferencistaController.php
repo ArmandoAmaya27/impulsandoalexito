@@ -6,12 +6,13 @@ class ConferencistaController extends Controllers{
 
 		parent::__construct();
 		$this->config= new Config();
-		Util::Requir('Fl');
+		Util::Requir(array('Fl', 'str'));
+
 	}
 
 	public function index(){
 		echo $this->view->render('conferencistas/videos');
-	}
+	} 
 
 	public function perfil($id){
 		echo $this->view->render('conferencistas/videos', array(
