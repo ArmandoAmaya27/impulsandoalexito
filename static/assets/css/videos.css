@@ -1,3 +1,5 @@
+@import url('comentarios.css');
+
 .main-page{
 	position: relative;
 	top: 67px;
@@ -144,12 +146,13 @@ ul{
 	color: #A72A88;
 }
 
-.metadescvid ul li{
+.metadescvid > ul > li{ 
 	width: 50%;
 	text-align: center;
+
 }
-.metadescvid ul li a{
-	border-color: #555555;
+.metadescvid ul > li > a{
+	border-color: #555555; 
 	border-radius: 0;
 	background-color: #3A3636;
 	color: #fff;

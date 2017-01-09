@@ -12,7 +12,7 @@
       * @return true si es email, false en caso contrario
       */
 
-    final public static function Email($email){
+    final public static function Email($email){ 
          return filter_var($email, FILTER_VALIDATE_EMAIL) ? true : false;
      }
 
@@ -39,7 +39,7 @@
      */
 
     final public static function Letters($c){
-    	return ctype_alpha($c);
+    	return ctype_alpha(str_replace(' ', '', $c));
     }
 
     // ---------------------------------------

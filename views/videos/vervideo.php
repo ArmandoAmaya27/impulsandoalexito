@@ -103,23 +103,52 @@
 					    	</div>
 					    	<div class="form-group">
 					    		<label class="control-label">Nombre</label>
-					    		<input type="text" name="name" class="form-control">
+					    		<input type="text" name="nombre" class="form-control">
 					    	</div>
 
 
 					    	<div class="form-group">
 					    		<label class="control-label">Email</label>
-					    		<input type="email" name="name" class="form-control">
+					    		<input type="email" name="correo" class="form-control">
 					    	</div>
 
 					    	<div class="form-group">
 					    		<label class="control-label">Mensaje</label>
 					    		<textarea class="form-control" name="mensaje"></textarea>
 					    	</div>
+
+					    	<input type="hidden" name="id_video" id="id_coment" value="<?= $idvid?>">
+					    	
+
 					    	<button type="button" id="submit_comentario" class="btn btn-block">comentar</button> 
 					    </form>
+						<hr>
+						<div class="comments-container" > 
+		<h1>Comentarios </h1> 
 
-					</div>				  
+		<ul id="comments-list" class="comments-list"> 
+			<li>
+				<div class="comment-main-level">
+					<!-- Avatar -->
+					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+					<!-- Contenedor del Comentario -->
+					<div class="comment-box">
+						<div class="comment-head">
+							<h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+							<span>hace 20 minutos</span>
+							
+						</div>
+						<div class="comment-content">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+						</div>
+					</div>
+				</div>
+				
+			</li>
+
+		</ul>
+	</div>
+					</div> 		  
 				</div>
 			</div>
   		</div>

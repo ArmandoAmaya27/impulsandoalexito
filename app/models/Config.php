@@ -28,7 +28,7 @@ final class Config extends Models{
 	}
 
 	final public function get_cats(){
-		return $this->select_array($this->db->pQuery('SELECT * FROM categorias', true));
+		return $this->select_array($this->db->pQuery('SELECT * FROM categorias', true)); 
 	}
 
 	final public function get_prods(){
