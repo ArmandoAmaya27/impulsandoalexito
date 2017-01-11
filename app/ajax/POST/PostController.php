@@ -54,6 +54,11 @@ class PostController extends Controllers{
 		echo $this->AjaxResponse($model->send_email($_POST));
 	}
 
+	public function subscribe(){
+		$model = new Subscribe;
+		
+		echo $this->AjaxResponse($model->subscrip($_POST));
+	}
 
 }
 

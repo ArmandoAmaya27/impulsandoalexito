@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-01-2017 a las 20:10:39
+-- Tiempo de generación: 11-01-2017 a las 03:19:24
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -204,6 +204,26 @@ INSERT INTO `productos` (`id`, `nombre_producto`, `descripcion_producto`, `preci
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `suscriptores`
+--
+
+CREATE TABLE `suscriptores` (
+  `id` bigint(255) NOT NULL,
+  `email` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `suscriptores`
+--
+
+INSERT INTO `suscriptores` (`id`, `email`) VALUES
+(1, 'armandoamaya@ocrend.com'),
+(2, 'armjaxd@hotmail.com'),
+(3, 'mariiacao@gmail.com');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `videos`
 --
 
@@ -276,6 +296,12 @@ ALTER TABLE `productos`
   ADD KEY `id_admin` (`id_admin`);
 
 --
+-- Indices de la tabla `suscriptores`
+--
+ALTER TABLE `suscriptores`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `videos`
 --
 ALTER TABLE `videos`
@@ -321,6 +347,11 @@ ALTER TABLE `config_videos`
 --
 ALTER TABLE `productos`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `suscriptores`
+--
+ALTER TABLE `suscriptores`
+  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `videos`
 --

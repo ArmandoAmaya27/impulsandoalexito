@@ -50,16 +50,19 @@
         </div>
         <div class="container footer_op">
             <div class="col-md-6">
-                <h4 class="text-center">Subscribete</h4>
-                <p class="text-center">Te invitamos a que te subscribas a nuestra web y asi podras recibir las ultimas noticias en tu correo</p>
-                <p class="text-center">¡No esperes más! y subscribete solo colocando tu correo</p>
-                <form action="#" method="POST" class="center-block">
+                <h4 class="text-center">Suscribete</h4>
+                <p class="text-center">Te invitamos a que te suscribas a nuestra web y asi podras recibir las ultimas noticias en tu correo</p>
+                <p class="text-center">¡No esperes más! y suscribete solo colocando tu correo</p>
+                <form id="subscribe_form" class="center-block">
+
+                    <div class="alert hide" id="ajax_subscribe"></div>
+
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input type="text" class="form-control" placeholder="Coloca tu emai..." name="email_sub">
+                            <input type="email" class="form-control" placeholder="Coloca tu emai..." name="email_sub">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Subscribirse</button>
+                                <button id="subscribe_submit" class="btn btn-default" type="button">Suscribirse</button>
                             </span>
                         </div>
                     </div>
@@ -92,3 +95,4 @@
         new WOW().init();
     </script>
     <script src="static/assets/js/default.js"></script>
+    <script src="static/system/js/subscribe.js"></script>
