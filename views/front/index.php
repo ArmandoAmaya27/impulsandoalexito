@@ -1,5 +1,5 @@
 <?= $this->insert('templates/header') ?>
-    
+
     <?= $this->insert('templates/nav', array(
         'navbar_view' => ''
     )) ?>
@@ -48,16 +48,16 @@
                 <div class="infs pull-left">
                     <p>Conectate</p>
                     <span class="followers">268K Seguidores</span>
-                </div> 
+                </div>
             </a>
         </li>
     </ul>
     <!-- FIN TOP REDES SOCIALES -->
 
-    
+
 
     <!-- CONFERENCISTAS -->
-    <section class="conferencistas"> 
+    <section class="conferencistas">
         <div class="container profile_team">
             <div class="row section-head">
                 <header class="col-sm-12 text-center wow flipInX">
@@ -69,10 +69,10 @@
                         <?= $princ[0]['txtconf'] ?>
                     </p>
                 </header>
-            </div> 
-            
+            </div>
+
             <div class="row">
-                <?php if(sizeof($confers) >0): foreach ($confers as $confer_key => $confer): ?> 
+                <?php if(sizeof($confers) >0): foreach ($confers as $confer_key => $confer): ?>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 profile wow bounceIn" data-wow-duration=".6s" data-wow-delay="1s">
                         <figure>
                             <div class="top-image">
@@ -80,31 +80,31 @@
                             </div>
                             <figcaption>
                                 <h3>
-                                    <span class="profile-heading"><a href="conferencista/perfil/<?= $confer_key  ?>"> <?= $confers[$confer_key]['nombre'] ?></a></span> 
+                                    <span class="profile-heading"><a href="conferencista/perfil/<?= $confer_key  ?>"> <?= $confers[$confer_key]['nombre'] ?></a></span>
                                 </h3>
                                 <span class="profile-subheading"><?= $confers[$confer_key]['rol'] ?></span>
                                 <p><?= substr($confers[$confer_key]['descripcion'],0,50) ?>...
                                 </p>
-                                <ul class="profile-scocial"> 
-                                
+                                <ul class="profile-scocial">
+
                                     <li>
                                         <a target="_blank" href="<?= $confers[$confer_key]['facebook'] ?>" class="icon-facebook"></a>
                                     </li>
 
                                     <li>
-                                        <a target="_blank" href="<?= $confers[$confer_key]['twitter'] ?>" class="icon-twitter"></a> 
+                                        <a target="_blank" href="<?= $confers[$confer_key]['twitter'] ?>" class="icon-twitter"></a>
                                     </li>
 
                                     <li>
-                                        <a target="_blank" href="<?= $confers[$confer_key]['instagram'] ?>" class="icon-instagram"></a> 
+                                        <a target="_blank" href="<?= $confers[$confer_key]['instagram'] ?>" class="icon-instagram"></a>
                                     </li>
                                 </ul>
                                 <div class="figcap"></div>
-                            </figcaption> 
-                        </figure> 
-                    </div> 
+                            </figcaption>
+                        </figure>
+                    </div>
                 <?php endforeach;else: ?>
-                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información:</strong> Todavía no existen conferencistas para esta sección. </div> 
+                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información:</strong> Todavía no existen conferencistas para esta sección. </div>
                 <?php endif; ?>
 
             </div>
@@ -128,7 +128,7 @@
         </div>
 
         <div class="row">
-            <?php if(false != $vids): foreach ($vids as $vid): 
+            <?php if(false != $vids): foreach ($vids as $vid):
 
             $fecha = explode('-', $vid['fecha_publicacion']);
             ?>
@@ -153,22 +153,22 @@
                                     <span class="abs title"><?= $vid['titulo_video'] ?></span>
                                     <p class="abs desc"><?= substr($vid['descripcion'], 0, 56) ?>....</p>
                                 </a>
-                                
+
                             </figcaption>
                         </figure>
                     </div>
                 </div>
-                
+
             </div>
             <?php endforeach;else: ?>
-                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información:</strong> Todavía no existen videos para esta sección. </div> 
+                    <div class="alert alert-dismissible alert-info">   <button type="button" class="close" data-dismiss="alert">&times;</button>   <strong>Información:</strong> Todavía no existen videos para esta sección. </div>
                 <?php endif; ?>
 
             <div class="col-md-12 all_vids text-center wow zoomIn">
                 <a href="videos"> Ver todos los videos <i class="fa fa-video-camera"></i> </a>
             </div>
         </div>
-        
+
     </section>
     <!-- FIN VIDEOS PRESENTACIÓN -->
 
@@ -177,7 +177,7 @@
 		<div class="row section-head">
             <header class="col-sm-12 text-center wow flipInX">
                 <section>
-                    
+
                     <h2><?= $princ[0]['tcont'] ?></h2>
                 </section>
                 <hr class="rel">
@@ -192,41 +192,43 @@
 
 			    <div class="col-md-6">
 			        <div class="well well-sm">
-				        <form class="form-horizontal wow slideInLeft" action="#" method="post">
+				        <form class="form-horizontal wow slideInLeft" id="contacto_form">
+
 				          	<fieldset>
+                                <div class="alert hide" id="ajax_contacto"></div>
 				            	<legend class="text-center">Contáctanos</legend>
-				    
+
 					            <div class="form-group">
 					              	<label class="col-md-3 control-label" for="name">Nombre</label>
 					              	<div class="col-md-9">
 					                	<input id="name" name="name" type="text" placeholder="Tu nombre" class="form-control">
 					              	</div>
 					            </div>
-				    
+
 					            <div class="form-group">
 					              	<label class="col-md-3 control-label" for="email">Correo</label>
 					              	<div class="col-md-9">
-					                	<input id="email" name="email" type="text" placeholder="example@example.com" class="form-control">
+					                	<input id="email" name="email" type="email" placeholder="example@example.com" class="form-control">
 					              	</div>
 					            </div>
-				    
+
 				            	<div class="form-group">
 				              	<label class="col-md-3 control-label" for="message">Mensaje</label>
 					              <div class="col-md-9">
 					                	<textarea class="form-control" id="message" name="message" placeholder="Escribe tu mensaje aquí..." rows="5"></textarea>
 					              </div>
 				            	</div>
-				    
+
 					            <div class="form-group">
 					              	<div class="col-md-12 text-right">
-					                	<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+					                	<button type="submit" id="contacto_submit" class="btn btn-primary btn-lg">Enviar</button>
 					              	</div>
 					            </div>
 				          	</fieldset>
 				        </form>
 			        </div>
 			    </div>
-		    
+
 
 		      	<div class="col-md-6">
 				    <div class="well well-sm quick-contact wow slideInRight">
@@ -242,13 +244,13 @@
 				            </div>
 				        </div>
 				    </div>
-				</div> 
+				</div>
 			</div>
 		</div>
     </section>
     <!-- FIN FORMULARIO DE CONTACTO -->
-    
+
     <?= $this->insert('templates/footer') ?>
-    
+    <script src="static/system/js/contacto.js"></script>
 </body>
 </html>
